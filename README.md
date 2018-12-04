@@ -6,13 +6,13 @@ Comparing historical data from U.S. Recessions - when the U.S. sneezes, does the
 Your visualization must include a Python Flask powered RESTful API, HTML/CSS, JavaScript, and at least one database (MySQL, MongoDB, SQLite, etc.)
 
 Your project should fall into one of the below four tracks: 
-A custom "creative" D3.js project (i.e. non-standard graph or chart)
+1. A custom "creative" D3.js project (i.e. non-standard graph or chart)
 
-A combination of Web Scraping and Leaflet or Plotly
+2. A combination of Web Scraping and Leaflet or Plotly
 
-A dashboard page with multiple charts all updating from the same data
+3. A dashboard page with multiple charts all updating from the same data
 
-A "thick" server that performs multiple manipulations on data in a database prior to visualization (must be approved)
+4. A "thick" server that performs multiple manipulations on data in a database prior to visualization (must be approved)
 
 Your project should include at least one JS library that we did not cover.
 
