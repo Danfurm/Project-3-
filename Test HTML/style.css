@@ -11,3 +11,8 @@ body {
 .bar:hover {
   fill: green;
 }
+
+line {
+  stroke: bisque;
+  stroke-width:3;
+}
