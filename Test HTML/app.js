@@ -2,13 +2,9 @@
 // Step 1:
 // Import data from the donuts.csv file
 // =================================
-d3.csv("recession.csv", function(error, data) {
-  if (error) throw error;
+d3.csv("recession.csv").then(function(data) {
   
-
-var values = data.map(data => data.Recession_Indicator)
-
-
+  
 var parseTime = d3.timeParse("%Y-%m-%d");
 
   // Format the data
@@ -16,6 +12,7 @@ var parseTime = d3.timeParse("%Y-%m-%d");
     data.date = parseTime(data.Date);
        
     data.value = data.Recession_Indicator;
+    console.log(data.value)
   });
    // svg container
 var svgHeight = 400;
@@ -68,7 +65,7 @@ var chartGroup = svg.append("g")
 
   var help = chartGroup.append('path')
   help.attr('d',line(data));
-  chartGroup.append('g').attr('class', 'x axis').attr('transform', 'translate(0, '+chartHeight+')').call(xAxis);        
+  chartGroup.append('g').attr('class', 'x axis').attr('transform', 'translate(0.7, '+chartHeight+')').call(xAxis);        
   chartGroup.append('g').attr('class', 'y axis').call(yAxis);        
  });
   
