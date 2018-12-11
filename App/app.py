@@ -22,25 +22,25 @@ api = Api(app)
 def home():  
     return render_template('index.html')
 
-class Currency_Meta(Resource):
+class Date_Meta(Resource):
     def get(self):
         #Connect to databse
         conn = e.connect()
         #Perform query and return JSON data
-        query = conn.execute("select distinct month from currency")
+        query = conn.execute("select distinct month from currency2")
         return {'currency': [i[0] for i in query.cursor.fetchall()]}
 
-class Currency_Exchange(Resource):
+class Date_Select(Resource):
     def get(self, month):
         conn = e.connect()
-        query = conn.execute("select * from new where month='%s'"%month)
+        query = conn.execute("select * from currency2 where month='%s'"%month)
         #Query the result and get cursor.Dumping that data to a JSON is looked by extension
         result = {'data': [dict(zip(tuple (query.keys()) ,i)) for i in query.cursor]}
         return result
         #We can have PUT,DELETE,POST here. But in our API GET implementation is sufficient
  
-api.add_resource(Currency_Exchange, '/curr/<string:month>')
-api.add_resource(Currency_Meta, '/currency')
+api.add_resource(Date_Select, '/Date/<string:month>')
+api.add_resource(Date_Meta, '/AllDates')
 
 if __name__ == "__main__":
     app.run()
